@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WEATHER API</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://openweathermap.org/api/one-call-api" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Radley&display=swap" />
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="flex-column min-100-vh">
+    <header class="hero">
+      <h1 class="app-title"><i class="fab fa-weather"></i>WEATHER DASHBOARD</h1>
+      <p>Search for a city's current and future weather conditions!
+      </p>
+    </header>
+  
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
+    
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search City</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="city">City</label> 
+              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+        <div class="card">
+            <div class="card-body" id="city-buttons">
+              <button data-language="Cleveland, OH" class="btn">Cleveland, OH</button>
+              <button data-language="San Antonio, TX" class="btn">San Antonio, TX</button>
+              <button data-language="Corpus Cristi, TX" class="btn">Corpus Cristi, TX</button>
+              <button data-language="Matamoros, MX" class="btn">Matamoros, MX</button>
+              <button data-language="Portland, OR" class="btn">Portland, OR</button>
+              <button data-language="Sacramento, CA" class="btn">Sacramento, CA</button>
+              <button data-language="Sarasota, FL" class="btn">Sarasota, FL</button>
+            </div>
+          </div>
+          </div>
+    
+    <header>
+
+    </header>
+
+
+<script src="assets/script.js"></script>
+</body> 
+</html>
