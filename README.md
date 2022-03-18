@@ -37,3 +37,5 @@
   ## 5. Helpful Links:link:
 
 * [Favicons](https://www.w3schools.com/howto/howto_html_favicon.asp)
+* [Weather API Icons](https://openweathermap.org/weather-conditions)
+* 

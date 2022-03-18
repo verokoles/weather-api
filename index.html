@@ -2,19 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>WEATHER DASHBOARD</title>
-    <link rel="icon" type="image/x-icon" href="assets/weather-favicon.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://openweathermap.org/api/one-call-api" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Radley&display=swap" />
-    <link rel="stylesheet" href="./assets/style.css" />
+  <title>WEATHER DASHBOARD</title>
+  <link rel="icon" type="image/x-icon" href="assets/weather-favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://openweathermap.org/api/one-call-api" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Radley&display=swap" />
+  <link rel="stylesheet" href="./assets/style.css" />
 </head>
+
 <body class="flex-column min-100-vh">
-    <header class="hero">
-      <h1 class="app-title"><div class="forecast">
+  <header class="hero">
+    <h1 class="app-title">
+      <div class="forecast">
         <div class="forecast__cloudy">
           <div class="forecast__cloudy__sun"></div>
           <div class="forecast__cloudy__cloud forecast__cloudy__cloud--small">
@@ -22,47 +24,49 @@
           <div class="forecast__cloudy__cloud forecast__cloudy__cloud--normal">
           </div>
         </div>
-      </div>WEATHER DASHBOARD</h1>
-      <p>Search for a city's current and future weather conditions
-      </p>
-    </header>
+      </div>WEATHER DASHBOARD
+    </h1>
+    <p>Search for a city's current and future weather conditions
+    </p>
+  </header>
   <!--type in city name-->
-    <main class="flex-row justify-space-between">
-        <div class="col-12 col-md-4">
-    
-          <div class="card">
-            <h3 class="card-header text-uppercase">Search City</h3>
-            <form id="city-form" class="card-body">
-              <label class="form-label" for="city">City</label> 
-              <input name="city" id="city" type="text" autofocus="true" class="form-input" />
-              <button type="submit"  id="btn-search-city" class="btn">Search</button>
-            </form>
-        </div>
-        <!--Search for city buttons-->
-        <div class="card">
-            <div class="card-body" id="city-buttons">
-              <button data-language="Cleveland, OH" class="btn">Cleveland, OH</button>
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search City</h3>
+        <form id="city-form" class="card-body">
+          <label class="form-label" for="city">City</label>
+          <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+          <button type="submit" id="btn-search-city" class="btn">Search</button>
+        </form>
+      </div>
+      <!--Search for city buttons-->
+      <div class="card">
+        <div class="card-body" id="city-buttons">
+          <!-- <button data-language="Cleveland, OH" class="btn">Cleveland, OH</button>
               <button data-language="San Antonio, TX" class="btn">San Antonio, TX</button>
               <button data-language="Portland, OR" class="btn">Portland, OR</button>
               <button data-language="Sacramento, CA" class="btn">Sacramento, CA</button>
-              <button data-language="Sarasota, FL" class="btn">Sarasota, FL</button>
-            </div>
-          </div>
-          </div>
-          <!--current weather box-->
-          <div class="col-12 col-md-8">
-            <h2 class="subtitle">Showing weather for: <span id="city-search-term"></span></h2>
-        <div id="city-container" class="current-city card"></div>
-
-        <!--next five days weather-->
-        <div class="col-12 col-md-8">
-          <h2 class="subtitle">5-Day Forecast: <span id="5-day-forecast"></span></span></h2>
-      <div id="forecast-container" class="list-group card"></div>
+              <button data-language="Sarasota, FL" class="btn">Sarasota, FL</button> -->
+        </div>
       </div>
+    </div>
+    <!--current weather box-->
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle">Showing weather for: <span id="city-search-term"></span></h2>
+      <div id="city-container" class="current-city card"></div>
+
+      <!--next five days weather-->
+      <div class="col-12 col-md-8">
+        <h2 class="subtitle">5-Day Forecast: <span id="5-day-forecast"></span></h2>
+        <div id="forecast-container" class="list-group card"></div>
       </div>
-    </main>
+    </div>
+  </main>
 
 
-<script src="./assets/script.js"></script>
-</body> 
+  <script src="./assets/script.js"></script>
+</body>
+
 </html>
