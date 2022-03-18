@@ -1,4 +1,4 @@
-# WORK DAY SCHEDULER:sunny:
+# WEATHER API:sunny:
 
 ## Purpose❗
  * Create an app that allows a user to search for a certain city's current weather

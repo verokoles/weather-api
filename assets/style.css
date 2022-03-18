@@ -1,9 +1,9 @@
 :root {
-    --primary: #d2f7df;
-    --secondary: #7dddc2;
-    --tertiary: #65a796;
-    --light-dark: #577467;
-    --dark: #2c3a32;
+    --primary: #d2e6f7;
+    --secondary: #8fc9e4;
+    --tertiary: #358eb8;
+    --light-dark: #d8dbdb;
+    --dark: #374e6b;
     --border-radius: .3rem;
   }
 
@@ -11,11 +11,50 @@
     font-size: 3rem;
     background-color: var(--dark);
     color: var(--primary);
-    padding: 0 10px;
-    display: inline-block;
+    padding: 0 15px 5px 25px;
+    display: inline-flex;
     border-radius: var(--border-radius);
     box-shadow: 6px 5px var(--light-dark);
   }
+  
+  .forecast__cloudy__sun{
+    width: 40px;
+    height: 40px;
+    background: #faeb7c;
+    border-radius: 50%;
+    border: 1px solid #F5D76A;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-flex;
+  }
+  @keyframes moveRight {
+    0% {
+      left: 10px;
+    }
+    
+    50% {
+      left: 45px;
+    }
+    
+    100% {
+      left: 10px;
+    }
+  }
+  
+  @keyframes moveLeft {
+    0% {
+      left: 50px;
+    }
+    
+    50% {
+      left: 10px;
+    }
+    
+    100% {
+      left: 50px;
+    }
+  }
+  
   main {
     margin: 20px auto;
     width: 94%;
@@ -23,6 +62,8 @@
   
   p {
     font-size: 1.2rem;
+    padding-top: 15px;
+    padding-left: 10px;
   }
   /* buttons */
    .btn {
@@ -33,7 +74,7 @@
     display: block;
     margin: 5px 0;
     border-radius: var(--border-radius);
-    color: var(--primary);
+    color: var(--tertiary);
     border: none;
     outline: none;
     background-color: var(--light-dark);
@@ -85,7 +126,7 @@ h6 {
 /* card styling */
 .card {
     margin: 0 0 20px 0;
-    border: 3px solid var(--dark);
+    border: 2px solid var(--dark);
     border-radius: var(--border-radius);
   }
   
@@ -101,7 +142,7 @@ h6 {
   }
 /* list of cities */
 .list-group {
-    padding: 0;
+    padding: 100px;
     list-style: none;
   }
   
@@ -117,3 +158,22 @@ h6 {
   .list-item:hover {
     background-color: var(--dark);
   }
+  .current-city {
+    margin-bottom: 10px;
+    padding: 14.5%;
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: var(--tertiary);
+    text-decoration: none;
+  }
+.col-md-8 {
+    flex: 0 0 calc(100% * 8 / 12 - 2%);
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
