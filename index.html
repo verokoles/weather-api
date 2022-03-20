@@ -30,44 +30,54 @@
 
   <!-- search for a city's weather -->
   <main class="columns is-multiline">
-    <div class="column">
-      <form id="input-form" class="field box column is-one-quarter ml-3">
-        <label class="label">Search City</label>
-        <div class="control">
-          <input name="city" id="city" type="text" autofocus="true" class="input" placeholder="ex: Cleveland">
-        </div>
-        <div class="control">
-          <button type="submit" id="search-btn" class="button is-primary">Search</button>
-        </div>
-        </form>
-        <!-- recent cities -->
-        <div id="recent-cities" class="box mt-3 is-flex-mobile">
-          <label class="label">Recent Searched Cities:</label>
-          <div class="card-body" id="city-buttons">
-            <button class="btn is-primary"></button>
+    <section class="container">
+      <div class="columns is-multiline">
+        <form id="input-form" class="field box column is-one-quarter ml-3">
+          <label class="label">Search City</label>
+          <div class="control">
+            <input id="city" type="text" autofocus="true" class="input" placeholder="ex: Cleveland">
           </div>
-        </div>
-    <!--current weather box-->
-    <div class="box column ml-2 mr-4" id="city-weather-container">
+          <div class="control">
+            <button type="submit" id="search-btn" class="button is-primary mt-1">Search</button>
+          </div>
 
-      <p class="title is-5 bd-notification is-info"><span id="city-search-term"></span></p>
-      <p class="subtitle is-6">
-        Temperature: <span id="display-temp"></span>
-        <br>
-        Humidity: <span id="display-hum"></span>
-        <br>
-        Wind Speed: <span id="display-wind"></span>
-        <br>
-        UV Index: <span id="display-uvi"></span>
-        <br>
-      </p>
+          <!-- recent cities (JS) -->
+          <div id="recent-cities" class="box mt-3 is-flex-mobile">
+            <label class="label">Recent Searched Cities:</label>
+            <div id="searched">
+            </div>
+          </div>
+          </form>
+          <!--current weather box-->
+          <div class="box column ml-2 mr-4" id="city-weather-container">
 
+            <p class="title is-5 bd-notification is-info"><span id="city-search-term"></span></p>
+            <!-- weather details for searched current city -->
+            <p class="subtitle is-6">
+              Temperature: <span id="display-temp"></span>
+              <br>
+              Humidity: <span id="display-hum"></span>
+              <br>
+              Wind Speed: <span id="display-wind"></span>
+              <br>
+              UV Index: <span id="display-uvi"></span>
+              <br>
+            </p>
 
-      <!--next five days weather-->
-      <h2 class="subtitle">5-Day Forecast: <span id="5-day-forecast"></span></h2>
-      <div id="forecast-container" class="list-group card"></div>
-    </div>
-    </div>
+            <!--next five days weather-->
+            <div class="" id="forecast-container">
+              <p class="title is-5 bd-notification is-info">5-Day Forecast:</p>
+              <div class="columns mr-1 ml-1">
+                <div class="box column is-one-fifth" id="day-1-date">Day 1</div>
+                <div class="box column" id="day-2-date">Day 2</div>
+                <div class="box column" id="day-3-date">Day 3</div>
+                <div class="box column" id="day-4-date">Day 4</div>
+                <div class="box column" id="day-5-date">Day 5</div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
 
   </main>
 
