@@ -47,41 +47,43 @@
             <div id="searched">
             </div>
           </div>
-          </form>
-          <!--current weather box-->
-          <div class="box column ml-2 mr-4" id="city-weather-container">
+        </form>
+        <!--current weather box-->
+        <div class="box column ml-2 mr-4" id="city-weather-container">
 
-            <p class="title is-5 bd-notification is-info"><span id="city-search-term"></span></p>
-            <!-- weather details for searched current city -->
-            <p class="subtitle is-6">
-              Temperature: <span id="display-temp"></span>
-              <br>
-              Humidity: <span id="display-hum"></span>
-              <br>
-              Wind Speed: <span id="display-wind"></span>
-              <br>
-              UV Index: <span id="display-uvi"></span>
-              <br>
-            </p>
+          <p class="title is-5 bd-notification is-info"><span id="city-search-term"></span></p>
+          <!-- weather details for searched current city -->
+          <div id="display-weater-container"></div>
+          <p class="subtitle is-6">
+            Temperature: <span id="display-temp"></span>
+            <br>
+            Humidity: <span id="display-hum"></span>
+            <br>
+            Wind Speed: <span id="display-wind"></span>
+            <br>
+            UV Index: <span id="display-uvi"></span>
+            <br>
+          </p>
 
-            <!--next five days weather-->
-            <div class="" id="forecast-container">
-              <p class="title is-5 bd-notification is-info">5-Day Forecast:</p>
-              <div class="columns mr-1 ml-1">
-                <div class="box column is-one-fifth" id="day-1-date">Day 1</div>
-                <div class="box column" id="day-2-date">Day 2</div>
-                <div class="box column" id="day-3-date">Day 3</div>
-                <div class="box column" id="day-4-date">Day 4</div>
-                <div class="box column" id="day-5-date">Day 5</div>
-              </div>
+          <!--next five days weather-->
+          <div class="" id="forecast-container">
+            <p class="title is-5 bd-notification is-info">5-Day Forecast:</p>
+            <div class="columns mr-1 ml-1">
+              <div class="box column is-one-fifth" id="day-1-date">Day 1</div>
+              <div class="box column" id="day-2-date">Day 2</div>
+              <div class="box column" id="day-3-date">Day 3</div>
+              <div class="box column" id="day-4-date">Day 4</div>
+              <div class="box column" id="day-5-date">Day 5</div>
             </div>
           </div>
+        </div>
       </div>
     </section>
 
   </main>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
   <script src="./assets/script.js"></script>
 </body>
 

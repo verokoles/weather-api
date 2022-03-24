@@ -2,42 +2,36 @@ var cityButtonsEl = document.querySelector("#city-buttons");
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#city");
 var cityContainerEl = document.querySelector("#city-container");
-var citySearchTerm = document.querySelector("#city-search-term");
-var btnSearchCity = document.querySelector("#btn-search-city");
+var citySearchTerm = document.querySelector("#city");
+var btnSearchCity = document.querySelector("#search-btn");
+var recentSearchEl = document.querySelector("#searched");
+
+var tempEl = document.querySelector("#display-temp");
+var humEl = document.querySelector("#display-hum");
+var windEl = document.querySelector("#display-wind");
+var uviEl = document.querySelector("#display-uvi");
+
+
 // //card elements 
 var col = document.createElement('div');
 var card = document.createElement('div');
 var cardBody = document.createElement('div');
 var cardTitle = document.createElement('h5');
 var weatherIcon = document.createElement('img');
-var tempEl = document.createElement('p');
-var windEl = document.createElement('p');
-var humidityEl = document.createElement('p');
-// append card elements 
-col.append(card);
-card.append(cardBody);
-cardBody.append(cardTitle, weatherIcon, tempEl, windEl, humidityEl);
 
-col.setAttribute('class', 'col-md');
-col.classList.add('five-day-forecast');
-card.setAttribute('class', 'card big-primary h-100 text-white');
-cardBody.setAttribute('class', 'card-body p-2');
-cardTitle.setAttribute('class', 'card-title');
-tempEl.setAttribute('card', 'card-text');
-windEl.setAttribute('card', 'card-text');
-humidityEl.setAttribute('card', 'card-text');
+
+var searchIdCounter = 0;
 
 var apiKey = "a7bb95be4838dc9c0a3fe02492f27fb9";
 
-// btnSearchCity.onclick = function (event) {
-//     console.log("Hello World!!!");
-//     event.preventDefault();
-
-//     formSubmitHandler();
-// };
-
-var formSubmitHandler = function (event) {
+btnSearchCity.onclick = function (event) {
+    console.log("Hello World!!!");
     event.preventDefault();
+
+    formSubmitHandler();
+};
+
+var formSubmitHandler = function () {
     //get value from input element
     var city = cityInputEl.value.trim();
 
@@ -58,7 +52,7 @@ function getCoordinates(city) {
         dataType: "json",
         success: function (json) {
             console.log(json);
-            console.log("First Data Call: ", data);
+            console.log("First Data Call: ", json);
             getCoordinates.json = json;
             getWeather(json.coord);
             getForecast(json.coord);
@@ -76,10 +70,12 @@ function getWeather(coord) {
         async: true,
         dataType: "json",
         success: function (json) {
-            console.log(json);
-            console.log("Second Data Call: ", data);
-            getWeather.json = json;
+            console.log("Second Data Call: ", json);
+            // getWeather.json = json;
+
+            // TODO - display the 5 days weather forecast
             displayWeather(json);
+            console.log(json);
         },
         error: function (err) {
             console.log(err);
@@ -95,8 +91,8 @@ function getForecast(coord) {
         async: true,
         dataType: "json",
         success: function (json) {
-            console.log(json);
             getForecast.json = json;
+            console.log(json);
         },
         error: function (err) {
             console.log(err);
@@ -106,59 +102,83 @@ function getForecast(coord) {
 function displayWeather(json) {
     var displayCity = citySearchTerm.value.trim();
     displayCity.textContent = "Displaying Current Weather For: " + displayCity;
+
+
+    // TODO - replace this with the current values
+    var current = json.current;
+    tempEl.textContent = current.temp;
+    humEl.textContent = current.humidity;
+    windEl.textContent = current.wind_speed;
+    uviEl.textContent = current.uvi;
 };
 
 function showRecentSearches(city) {
-    var displayCity = citySearchTerm.value.trim();
-    var btnSearchCity = document.createElement("button");
-    btnSearchCity.classList = "button is-fullwidth is-info";
-    btnSearchCity.textContent = displayCity;
+    var searchBtnEl = document.createElement("button");
+    searchBtnEl.classList = "button is-fullwidth is-info";
+    searchBtnEl.setAttribute("data-id", searchIdCounter);
+    btnSearchCity.textContent = city;
 
-    recentSearchEl.appendChild();
+    searchIdCounter++;
+    recentSearchEl.appendChild(searchBtnEl);
+}
 
-};
-//execute upon form submission browser event
+
+
+var loadSearch;
 //getting current date and weather icon
 function showCurrentWeather(currentWeather, timezone) {
     console.log(currentWeather);
     console.log(currentWeather.weather[0].icon);
-    var iconcode = currentWeather.weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+    var iconCode = currentWeather.weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(iconUrl);
 }
-var moment = require('moment');
-//load moment.js library
-let now = moment();
-console.log(now.format());
 
-// set variables for the next five day forecast (date)
-var currentDate = moment();
-var displayCurrentDate = document.getElementById('current-date');
-displayCurrentDate.innerHTML = currentDate.format('MM-DD-YYYY');
 
-var displayDay1 = document.getElementById('day-1-date');
-displayDay1.innerHTML = currentDate.add(1, 'days').format('MM-DD-YYYY');
-var displayDay2 = document.getElementById('day-2-date');
-displayDay2.innerHTML = currentDate.add(2, 'days').format('MM-DD-YYYY');
-var displayDay3 = document.getElementById('day-3-date');
-displayDay3.innerHTML = currentDate.add(3, 'days').format('MM-DD-YYYY');
-var displayDay4 = document.getElementById('day-4-date');
-displayDay4.innerHTML = currentDate.add(4, 'days').format('MM-DD-YYYY');
-var displayDay5 = document.getElementById('day-5-date');
-displayDay5.innerHTML = currentDate.add(5, 'days').format('MM-DD-YYYY');
-console.log(days);
+// // set variables for the next five day forecast (date)
+// var currentDate = moment().format('MMMM Do YYYY, h:mm a');
+// var displayCurrentDate = document.getElementById('current-date');
+// displayCurrentDate.innerHTML = currentDate.format('MM-DD-YYYY');
+
+// var displayDay1 = document.getElementById('day-1-date');
+// displayDay1.innerHTML = currentDate.add(1, 'days').format('MM-DD-YYYY');
+// var displayDay2 = document.getElementById('day-2-date');
+// displayDay2.innerHTML = currentDate.add(2, 'days').format('MM-DD-YYYY');
+// var displayDay3 = document.getElementById('day-3-date');
+// displayDay3.innerHTML = currentDate.add(3, 'days').format('MM-DD-YYYY');
+// var displayDay4 = document.getElementById('day-4-date');
+// displayDay4.innerHTML = currentDate.add(4, 'days').format('MM-DD-YYYY');
+// var displayDay5 = document.getElementById('day-5-date');
+// displayDay5.innerHTML = currentDate.add(5, 'days').format('MM-DD-YYYY');
+// console.log(days);
 // get temp, humidity, wind speed, and uvi for next five days
 
-//uv index should show oclor code
+//uv index should show color code
 // 0-2 is low danger = green
 // 3-5 is moderate = yellow
 // 6-7 is high = orange
 // 8-10 is very high = red
 // higher than 10 is extreme = purple
+// save recent searches to display
+
+function runSearches(event) {
 
 
+}
+var saveSearches = function () {
 
+}
+//make weather appear for searched city
+function loadWeatherSearch(searchId, search) {
+    localStorage.setItem(searchId, search.textContent);
 
+}
+var loadSearch = function () { }
 
 //runs formsubmithandler when someone click search or press enter 
 cityInputEl.addEventListener("submit", formSubmitHandler);
+recentSearchEl.addEventListener('click', runSearches);
+
+
+// TODO - please add the correct values
+loadWeatherSearch("", "");
